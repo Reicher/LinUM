@@ -38,6 +38,7 @@
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 \usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
 
+\usepackage{pdflscape}
 \usepackage{pgfgantt}
 
 \usepackage{mathpazo} % Palatino font
@@ -130,45 +131,29 @@ Jag är 32 år gammal och har användt linux för hemmabruk sedan jag började p
 
 \lipsum[2] % Dummy text
 
-\section{Tidsplan}
+\begin{landscape}
 
-\begin{ganttchart}[
-    canvas/.append style={fill=none, draw=black!5, line width=.75pt},
-    hgrid style/.style={draw=black!5, line width=.75pt},
-    vgrid={*1{draw=black!5, line width=.75pt}},
-    today=0,
-    today rule/.style={
-      draw=black!64,
-      dash pattern=on 3.5pt off 4.5pt,
-      line width=1.5pt
-    },
-    today label font=\small\bfseries,
-    title/.style={draw=none, fill=none},
-    title label font=\bfseries\footnotesize,
-    title label node/.append style={below=7pt},
-    include title in canvas=false,
-    bar label font=\mdseries\small\color{black!70},
-    bar label node/.append style={left=2cm},
-    bar/.append style={draw=none, fill=black!63},
-    bar incomplete/.append style={fill=barblue},
-    bar progress label font=\mdseries\footnotesize\color{black!70},
-    group incomplete/.append style={fill=groupblue},
-    group left shift=0,
-    group right shift=0,
-    group height=.5,
-    group peaks tip position=0,
-    group label node/.append style={left=.6cm},
-    group progress label font=\bfseries\small,
-    link/.style={-latex, line width=1.5pt, linkred},
-    link label font=\scriptsize\bfseries,
-    link label node/.append style={below left=-2pt and 0pt}
-  ]{1}{13}
-  \gantttitle[
-    title label node/.append style={below left=7pt and -3pt}
-  ]{WEEKS:\quad1}{1}
-  \gantttitlelist{2,...,20}{1} \\
-  \ganttbar[]{\textbf{1} Planera dina studier}{1}{2} \\
-  \ganttbar[]{\textbf{2} Att arbeta i ett Linux-system}{2}{4} \\
-\end{ganttchart}
+\section{Tidsplan}
+    \begin{ganttchart}[x unit=1.4cm, y unit title=.7cm, y unit chart=1.5cm]{8}
+    \gantttitle{2012}{3}
+    \gantttitle{2013}{5}\\
+    \gantttitlelist{50, 51}{1}
+    \gantttitle{Christmas}{2}
+    \gantttitlelist{2, ..., 5}{1}\\
+
+    \ganttbar[name=b1]{compile ViMuDat}{1}{1.5} \\
+    \ganttbar[name=b2,inline=true]{create stubs}{2.5}{4.5} \\
+    \ganttbar{implement metadata}{5.5}{5.5}\\
+    \ganttmilestone{metadata works}{5.5}\\
+    \ganttgroup{Upload}{5}{6.5}\\
+    \ganttbar{implement Matlab controler}{4}{2}\\
+    \ganttbar{implement file parser}{4}{1.5}\\
+    \ganttbar{implement add record}{5.5}{1}\\
+    \ganttbar{implement segmentation}{5.5}{1}\\
+    \ganttbar{implement registration}{5.5}{1}\\
+    \ganttbar{implement classification}{5.5}{1}\\
+    \ganttmilestone{implementation finished}{7}\\
+    \end{ganttchart}
+\end{landscape}
 
 \end{document}
