@@ -1,33 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Academic Title Page
-% LaTeX Template
-% Version 2.0 (17/7/17)
-%
-% This template was downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original author:
-% WikiBooks (LaTeX - Title Creation) with modifications by:
-% Vel (vel@latextemplates.com)
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-% 
-% Instructions for using this template:
-% This title page is capable of being compiled as is. This is not useful for 
-% including it in another document. To do this, you have two options: 
-%
-% 1) Copy/paste everything between \begin{document} and \end{document} 
-% starting at \begin{titlepage} and paste this into another LaTeX file where you 
-% want your title page.
-% OR
-% 2) Remove everything outside the \begin{titlepage} and \end{titlepage}, rename
-% this file and move it to the same directory as the LaTeX file you wish to add it to. 
-% Then add \input{./<new filename>.tex} to your LaTeX file where you want your
-% title page.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
@@ -37,7 +7,6 @@
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 \usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
-
 \usepackage{pdflscape}
 \usepackage{pgfgantt}
 
@@ -48,6 +17,7 @@
 \definecolor{linkred}{RGB}{165,0,33}
 
 \begin{document}
+
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -125,35 +95,41 @@
 
 \section{Personlig presentation}
 
-Jag är 32 år gammal och har användt linux för hemmabruk sedan jag började på universitetet för lite mer än tio år sedan. Hemma använder jag datorn mestadels till multimedia, spel och lättare programmerings-projekt. Sedan -11 
+Jag är 32 år gammal Örebroare och har använt linux för hemmabruk sedan jag började på universitetet för ungefär tio år sedan. Hemma använder jag datorn mestadels till multimedia, spel och lättare programmerings-projekt, ofta på distans med vänner med hjälp av github/bitbucket.
+
+Sedan -11 har jag arbetat som utvecklare på bland annat Atlas Copco, Volvo och Fortum Värme. För närvarande arbetar jag i linux på Westermo som utvecklar industri-routrar. Genom åren har jag arbetat mestadels i C/C++ men även C\# och diverse scriptspråk så som pyton, go, bash m.m. På fritiden sitter jag även en del i javascript.
+
+Tidigare har jag aldrig arbetat proffesionellt i linux och känner nu att jag missat många viktiga koncept som en kurs kanske kan hjälpa mig med. Har haft en dålig ovana att googla mig till ytliga lösningar på mina linux problem och funderingar. 
 
 \section{Reflektion över kursen krav}
 
-\lipsum[2] % Dummy text
+En kurs på distans utan tentor eller hot från CSN ställer givetvis en del krav på min disciplin, jag har dock haft en heltidstjänst och läst kurser på distans förut vilket gått bra. 
 
-\begin{landscape}
+Varje dag pendlar jag två timmar med tåg och min plan är att använda dessa timmar till studier. Om jag sedan använder några kvällar i veckan borde det räcka till ett slutbetyg. 
+
+De kapitel som känns mest främmande är de sista om grafiska bibliotek samt programpaket som jag har begränsad erfarenhet av. Även grupparbetet i kapitel sex kan bli krävande då arbete med främmande människor på distans alltid kan fungera både bra och dåligt. Därför kommer jag planera upp lite extra tid i kursens slutskede samt grupparbetet. 
+
+Jag har planerat upp för att i göra de uppgifter jag känner mig bekväm med på en vecka och övriga på 2-3 veckor. Målet är att bara ha utvärderingen kvar till jul.   
 
 \section{Tidsplan}
-    \begin{ganttchart}[x unit=1.4cm, y unit title=.7cm, y unit chart=1.5cm]{8}
-    \gantttitle{2012}{3}
-    \gantttitle{2013}{5}\\
-    \gantttitlelist{50, 51}{1}
-    \gantttitle{Christmas}{2}
-    \gantttitlelist{2, ..., 5}{1}\\
 
-    \ganttbar[name=b1]{compile ViMuDat}{1}{1.5} \\
-    \ganttbar[name=b2,inline=true]{create stubs}{2.5}{4.5} \\
-    \ganttbar{implement metadata}{5.5}{5.5}\\
-    \ganttmilestone{metadata works}{5.5}\\
-    \ganttgroup{Upload}{5}{6.5}\\
-    \ganttbar{implement Matlab controler}{4}{2}\\
-    \ganttbar{implement file parser}{4}{1.5}\\
-    \ganttbar{implement add record}{5.5}{1}\\
-    \ganttbar{implement segmentation}{5.5}{1}\\
-    \ganttbar{implement registration}{5.5}{1}\\
-    \ganttbar{implement classification}{5.5}{1}\\
-    \ganttmilestone{implementation finished}{7}\\
-    \end{ganttchart}
-\end{landscape}
+\begin{ganttchart}
+[vgrid={*{37}{dotted},*{1}{green,ultra thick},*{52}{dotted}}]{1}{20}
+\gantttitlelist{35,...,52,1, 2}{1} \\
+\ganttbar{Planera dina studier}{1}{1} \\
+\ganttbar{Att arbeta i ett Linux-system}{2}{2} \\
+\ganttbar{Versionshantering}{3}{3} \\
+\ganttbar{Editorer}{4}{4} \\
+\ganttbar{Bygga applikationer}{5}{5} \\
+\ganttbar{Bibliotek}{6}{8} \\
+\ganttbar{Administrationsverktyg}{8}{9} \\
+\ganttbar{Utvecklingsverktyg}{9}{10} \\
+\ganttbar{Dokumentation}{11}{11} \\
+\ganttbar{Script}{12}{12} \\
+\ganttbar{Grafiska bibliotek}{13}{15} \\
+\ganttbar{Grafiska utvecklingsmiljöer}{15}{16} \\
+\ganttbar{Programpaket}{16}{17} \\
+\ganttbar{Utvärdering}{18}{20}{1}{2} \\
+\end{ganttchart}
 
 \end{document}
