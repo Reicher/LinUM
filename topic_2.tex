@@ -8,7 +8,7 @@
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 \usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
 \usepackage{pdflscape}
-
+\usepackage{longtable}
 \usepackage{mathpazo} % Palatino font
 
 \begin{document}
@@ -90,27 +90,27 @@
 
 \section{Beskrivningar av samtliga kommandon i del 1}
 \begin{center}
-    \begin{tabular}{ | l | p{10cm} |}
+    \begin{longtable}{ | l | p{10cm} |}
     \hline
     Kommando & Beskrivning \\ \hline
     man & Visar manualen för ett kommando. Tex. "man ls" \\ \hline
-    info & vet inte \\ \hline	
-	cp & vet inte \\ \hline	
-	mv & vet inte \\ \hline	
-	mkdir & vet inte \\ \hline	
-	rmdir & vet inte \\ \hline	
-	rm & vet inte \\ \hline	
-	find & vet inte \\ \hline	
-	cd & vet inte \\ \hline	
-	pwd & vet inte \\ \hline	
-	df & vet inte \\ \hline	
-	ps & vet inte \\ \hline	
-	du & vet inte \\ \hline	
-	tar & vet inte \\ \hline	
-	seq & vet inte \\ \hline	
-	whoami & vet inte \\ \hline	
-	users & vet inte \\ \hline	
-	who & vet inte \\ \hline	
+    info & Liknande 'man' men mer som en konsol-wiki med länkade sidor \\ \hline	
+	cp & Kopierar filer från en plats till en annan, tar minst 2 argument <källa> och <mål> \\ \hline	
+	mv & Flyttar eller döper om en fil, tar liksom 'cp' två argument <källa> och <mål>. Om dessa är i samma mapp döps filen om.  \\ \hline	
+	mkdir & Skapar en mapp \\ \hline	
+	rmdir & Raderar en mapp \\ \hline	
+	rm & Raderar en fil \\ \hline	
+	find & Låter dig söka igenom mappstrukturer efter filer baserat på bla. namn.\\ \hline	
+	cd & Öppnar upp en mapp, '..' som argument "backar ur" din aktiva mapp \\ \hline	
+	pwd &  Visar var du befinner dig i mappstrukturen\\ \hline	
+	df & Visar information om filsystemet och diskanvändning \\ \hline	
+	ps & Listar de processer som för tillfället körs \\ \hline	
+	du & Tar en fil som argument och visar dess storlek \\ \hline	
+	tar & Komprimera eller packa upp filer.\\ \hline	
+	seq & Skriver ut en sekvens av nummer. Kan ha 1-3 argument. Ett argument skapar en sekvens av heltal från 1 till argumentet. Två argument listar alla heltal mellan argumenten. Tre argument låter dig välja starttal, inkrementerings-takt och sluttal.\\ \hline	
+	whoami & Skriver ut aktiv använder id. \\ \hline	
+	users & Listar alla inloggade användare\\ \hline	
+	who & Listar mer utförlig info om vilka användare som är inloggade. Växeln --boot visar när systemet startades.\\ \hline	
 	whereis & vet inte \\ \hline	
 	cat & vet inte \\ \hline	
 	tee & vet inte \\ \hline	
@@ -125,10 +125,8 @@
 	grep & vet inte \\ \hline	
 	sort & vet inte \\ \hline	
 	wc & vet inte \\ \hline	    
-    \end{tabular}
+    \end{longtable}
 \end{center}
-
-
 
 \section{I uppgift 2 står det att ingen annan användare ska ha tillgång till katalogerna. Är detta möjligt eller finns det en användare som aldrig går att utestänga?}
 \lipsum[56]
