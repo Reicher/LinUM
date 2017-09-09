@@ -9,6 +9,7 @@
 \usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
 \usepackage{pdflscape}
 \usepackage{longtable}
+\usepackage{listings}             % Include the listings-package
 \usepackage{mathpazo} % Palatino font
 
 \begin{document}
@@ -129,18 +130,89 @@
 \end{center}
 
 \section{I uppgift 2 står det att ingen annan användare ska ha tillgång till katalogerna. Är detta möjligt eller finns det en användare som aldrig går att utestänga?}
-\lipsum[56]
+Det är omöjligt, man kan aldrig utestänga användaren 'root'. Man kan alltid logga in som root (sudo -i) och komma åt allt. 
 
 \section{Hur du löste uppgift 2, och bifoga kopior på adekvata delar från filerna /etc/group, /etc/passwd samt utskrifter från ls -l}
-\lipsum[56]
+
+\begin{lstlisting}[language=bash,caption={Utdrag från /etc/passwd}]
+$ tail -n 3 /etc/passwd
+adaand:x:1002:1002::/home/adaand:/bin/bash
+petpet:x:1003:1003::/home/petpet:/bin/bash
+lisper:x:1004:1004:,,,:/home/lisper:/bin/bash
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=bash,caption={Utdrag från /etc/group}]
+$ tail -n 3 /etc/group
+datagroup:x:1005:adaand,petpet
+admingroup:x:1006:adaand,lisper
+marketgroup:x:1007:lisper,petpet
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash,caption={Resultat av ls -l}]
+$ ls -l
+total 20
+d---rwx--- 2 regen admingroup  4096 sep  9 13:58 admin
+d---rwx--- 2 regen datagroup   4096 sep  9 13:58 data
+d---rwx--- 2 regen marketgroup 4096 sep  9 13:58 market
+\end{lstlisting}
+
+Användare 'regen' är min användare som jag vanligtvis använder. De olika grupper har fullständiga rättigheter till mapparna. Varken ägaren 'regen' eller övriga användare kan varken läsa, skriva eller exekvera.
      
 \section{Beskrivningar av katalogerna i uppgift 3}
-\lipsum[56]
-
+\begin{center}
+    \begin{longtable}{ | l | p{10cm} |}
+    \hline
+    Katalog & Beskrivning \\ \hline   
+    /boot & De filer som krävs för att starta ditt system. Linux kernel m.m \\ \hline
+	/etc & Generella konfigurationsfiler för hela systemet. Kan ofta läsbara och möjliga att redigera "för hand" med en texteditor. \\ \hline
+	/sbin & Binärer till administratörsverktyg som i regel används för systemnderhåll av root\\ \hline
+	/bin & Grundläggande binärer som användare kan tänkas använda. Exempel kan vara bash, cp, ls och ps. \\ \hline
+	/usr & Innehåller bland annat icke kritiska binärer (/usr/bin och /usr/sbin), bibliotek till dessa (/usr/lib) samt program som installerats från källfiler (/usr/locale) \\ \hline
+	/var & Var står får "variable files" och innehåller filer som kan tänkas växa. Det kan handla om logg-filer, databaser med mera.\\ \hline
+	/dev & Innehåller representationer av systemets olika "devices" vilket genrellt handlar om hårddiskar, mus, tangentbord, USB och annan hårdvara. Förutom hårvara finns även en slumpgenerator (/dev/random) och det bottenlösa hålet /dev/null. \\ \hline
+	/home &  Innehåller en katalog för varje användare på systemet (förutom root). I dessa kataloger ligger användarspecifika inställningar och data.\\ \hline
+    \end{longtable}
+\end{center}
+    
 \section{Svaren på del 4 med kommentarer om hur varje del i kombinationerna fungerar}
-\lipsum[56]
+a. find -size  +1000 | sort
+Hittar alla filer med size över 1000 kilobytes och pipar det till sort för sortering
+
+b. sort adress.txt | uniq | wc -l
+Först sorterar vi adress.txt, sen plockar vi ut de unika rader som finns, sist använder vi wc med växeln -l för att räkna antal rader. 
+
+c. users | sort | uniq
+'users' listar alla användare, vi pipar det till sort som sorterar för att slutligen pipa till uniq som tar bort eventuella dubletter.
+
+d. seq 1 10 | tee test1 test2
+seq 1 10 listar alla heltal mellan 1 och 10, vi pipar det till tee som skriver till både filer och standard output.
+
 
 \section{Redovisa ingående vilka slutsatser du drar av resultaten från de olika kommandona i del 5. Hur interagerar programmen med de olika fildeskriptorerna och hur styr man flödena? Redovisa även svaren på frågorna.}
-\lipsum[56]
+ls / > lsoutput.txt
+Ingen utskrift, lsoutput.txt innehåller resultatet. '>' (egentligen 1>) skriver STDOUT till filen istället för skärmen
+
+ls /hh > lsoutput2.txt
+Får "ls: cannot access '/hh': No such file or directory" som utskrift. lsoutput2.txt är tom. Felmedelandet hamnar inte i filen eftersom det skrivs till STDERROR (vilket också visas på skärmen).
+
+ls / 2> lserror.txt
+Resultatet av 'ls /' visas på skärmen, eventuella felmeddelanden hade skrivits till lserror.txt efter som '2>' användes. Men nu gick allt fint och filen är tom.
+
+ls /hh 2> lserror2.txt
+Ingen utskrift ges på skärmen eftersom STDOUT inte har något att skriva ut och det felmedelande som gavs har skrivits till lserror2.txt med hjälp av 2>.
+
+De tre fildescriptorerna (STDIN, STDOUT och STDERROR) används för att styra flöden in och ut från filer. 
+
+STDIN är vanligen satt till tangentbordet i konsolen. Detta flöde kan ändras genom '0<', exempelvis kan styra flödet från en fil, tex:
+cat 0< enFilMedFilnamn.txt
+
+STDOUT är vanligen satt till skärmen i konsolen. För att spara dessa utskrifter till tex. en fil kan man styra om flödet med '1>' eller bara '>'. Tex: 
+ps > enFil.txt
+
+STDERROR skrivs precis som STDOUT ut till skärmen i konsolen. Till skillnad från STDOUT är denna vanligvis reserverad för felutskrifter. För att styra om eventuella felutskrifter använder man '2>' på samma sätt som med STDOUT.
+
+Vanligvis när man använder '>' så skrivs filens innehåll över. Genom att använda '>>' lägger man istället till text i slutet av filen. 
+
 
 \end{document}
