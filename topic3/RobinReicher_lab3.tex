@@ -92,7 +92,33 @@
 %----------------------------------------------------------------------------------------
 
 \section{CVS}
-\lipsum[3]
+1. Välj en plats för repot och sätt variablen CVSROOT till denna.
+export CVSROOT=:local:/home/regen/Documents/LinUM/topic3/repo
+
+2. Skapa en mapp på platsen och kör cvs init.
+mkdir /home/regen/Documents/LinUM/topic3/repo
+cd /home/regen/Documents/LinUM/topic3/repo
+cvs init
+
+3. Skapa en tom map som representerar dina project
+mkdir /home/regen/Documents/LinUM/topic3/tomMapp
+
+4. Gå in i mappen och importera allt `innehåll' till ditt repo. Välj ett passande namn och en `vendor-tag' och `release-tag', efteråt kan man ta bort mappen.
+cd /home/regen/Documents/LinUM/topic3/tomMapp
+cvs import LinUm Robin R1
+cd ..
+rmdir tomMapp
+
+5. Skapa en `arbetsmapp' och `checka ut' dina projekt dit.
+mkdir /home/regen/Documents/LinUM/topic3/work
+cd /home/regen/Documents/LinUM/topic3/work
+cvs co LinUm
+
+6. Skapa ett projekt och lägg till det och checka in det.
+cd /home/regen/Documents/LinUM/topic3/work/LinUm/
+mkdir Topic3
+cvs add Topic3
+cvs ci
 
 \section{Subversion}
 \lipsum[3]
