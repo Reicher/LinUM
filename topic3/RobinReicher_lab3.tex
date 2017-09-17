@@ -95,25 +95,29 @@
 
 
 \begin{enumerate}
-\item Välj en plats för repot och sätt variablen CVSROOT till denna.\\
+\item Laddar ner och hämtar hem cvs med apt-get. \\
+sudo apt-get install cvs
+\item Skapar en mapp för repot och sätter variablen CVSROOT till denna.\\
+cd /home/regen/Documents/LinUM/topic3/ \\
+mkdir repo \\
 export CVSROOT=:local:/home/regen/Documents/LinUM/topic3/repo
-\item Skapa en mapp på platsen och kör cvs init.\\
-mkdir /home/regen/Documents/LinUM/topic3/repo\\
-cd /home/regen/Documents/LinUM/topic3/repo\\
+\item Kör cvs init i repot\\
+cd repo\\
 cvs init
-\item Skapa en tom map som representerar dina project \\
-mkdir /home/regen/Documents/LinUM/topic3/tomMapp
-\item Gå in i mappen och importera allt `innehåll' till ditt repo. Välj ett passande namn och en `vendor-tag' och `release-tag'. När man importerar får man upp en editor som man kan skriva ett beskrivande loggmedelande. Efteråt kan man ta bort mappen.\\
-cd /home/regen/Documents/LinUM/topic3/tomMapp\\
+\item Skapa en tom map som representerar alla project \\
+cd ..\\
+mkdir tomMapp
+\item Går in i mappen och importera allt `innehåll' till repot. Sätter Robin som `vendor-tag' och R1 som `release-tag'. Efteråt import tar jag bort mappen.\\
+cd tomMapp\\
 cvs import LinUM Robin R1\\
 cd ..\\
 rmdir tomMapp
-\item Skapa en `arbetsmapp' och `checka ut' dina projekt dit.\\
-mkdir /home/regen/Documents/LinUM/topic3/work\\
-cd /home/regen/Documents/LinUM/topic3/work\\
+\item Skapar en `arbetsmapp' och `checkar ut' projekt dit.\\
+mkdir work\\
+cd work\\
 cvs co LinUM
-\item Skapa en mapp och lägg till den och checka in det.\\
-cd /home/regen/Documents/LinUM/topic3/work/LinUm/\\
+\item Skapar en mapp och lägger till och checkar in den.\\
+cd LinUm\\
 mkdir Topic3\\
 cvs add Topic3\\
 cvs ci\\
@@ -121,10 +125,10 @@ cvs ci\\
 cd Topic3/\\
 echo "Horse" > EnFil.txt\\
 echo "Chicken" > EnAnnanFil.txt\\
-cvs add EnFil.txt
-cvs add EnAnnanFil.txt
+cvs add EnFil.txt \\
+cvs add EnAnnanFil.txt \\
 cvs co
-\item Ändra i en fil och checka in\\
+\item Ändrar i en fil och checka in\\
 echo "Ducks" > EnFil.txt
 \end{enumerate}
 
@@ -177,7 +181,79 @@ Horse
 
 I översta halvan ser man en kort sammanfattning av filen och de olika (2) versioner som finns för filen. I undra halvan syns alla de ändringar som gjorts för denna fil. 
 
+\newpage
+
 \section{Subversion}
-\lipsum[3]
+\begin{enumerate}
+\item Installerar svn med apt-get \\
+sudo apt-get install subversion
+\item Skapar en arbetsmapp och checkar ut projektet\\
+mkdir svn\_work \\
+cd svn\_work \\
+svn co svn://130.239.163.12/labb4 . --username labb4
+\item Skapar min personliga mapp och fil, lägger till mappen och commitar ändringarna. \\
+mkdir robin\_reicher \\
+echo "Hello svn world" > robin\_reicher/bl.txt \\
+svn add robin\_reicher/ \\
+svn commit -m "Add personal folder"
+\item Lägger till mitt namn till users-mappen, commitar sedan. \\
+echo "Robin Reicher" >> users \\
+svn commit -m "Add user Robin Reicher to user-file"
+\item Lekte runt lite med kommandon...
+\item Gör ytterligare en kopia av repot \\
+mkdir ../svn\_work\_2 \\
+cd ../svn\_work\_2 \\
+svn co svn://130.239.163.12/labb4 . --username labb4
+\item Ändrar en hel del i min personliga fil, commitar utan problem. \\
+echo "Hello cruel svn world" > robin\_reicher/bl.txt \\
+echo "Goodbye cruel svn world" >> robin\_reicher/bl.txt \\ 
+svn commit -m "Change and add line in bl"
+\item Ändrar en hel del i det andra repot och försöker commita, vilket går dåligt. \\
+cd ../svn\_work \\
+echo "Hello cool svn world" > robin\_reicher/bl.txt \\
+echo "How are you?" >> robin\_reicher/bl.txt \\
+echo "Goodbye cool svn world" >> robin\_reicher/bl.txt \\
+svn commit -m "added new lines and changed some" \\
+\item Försöker istället uppdatera repot, får upp information där jag kan välja att kolla diffen med mera. Efter en titt på diffen (df) tar jag postpone(p). 
+svn update
+\begin{verbatim}
+Updating '.':
+C    robin\_reicher/bl.txt
+Updated to revision 2724.
+Summary of conflicts:
+  Text conflicts: 1
+Conflict discovered in file 'robin\_reicher/bl.txt'.
+Select: (p) postpone, (df) show diff, (e) edit file, (m) merge,
+        (mc) my side of conflict, (tc) their side of conflict,
+        (s) show all options: df
+\end{verbatim}
+\item Alla ändringar ligger nu i min lokala fil med kommentarer om vilka rader som kommer varifrån. Öppnar filen i en text-editor\\
+emacs robin\_reicher/bl.txt  \\
+\begin{verbatim}
+<<<<<<< .mine
+Hello cool svn world
+How are you?
+Goodbye cool svn world
+||||||| .r2723
+Hello cool svn world
+Nice to meet you!
+Goodbye cool svn world
+=======
+Hello cruel svn world
+Goodbye cruel svn world
+>>>>>>> .r2724
+\end{verbatim}
+\item Redigerar filen som jag vill ha den och sparar.
+\begin{verbatim}
+Hello cool svn world
+Nice to meet you!
+How are you?
+Goodbye cruel svn world
+\end{verbatim}
+\item Berättar för svn att de konflikterna filen hade nu är lösta. \\
+svn resolve --accept=working robin\_reicher/bl.txt
+\item Commitar nu utan problem. \\
+svn commit -m "add new lines and resolve conflicts" (lyckas)
+\end{enumerate}
 
 \end{document}
