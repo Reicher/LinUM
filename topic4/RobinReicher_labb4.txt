@@ -1,0 +1,12 @@
+Den dokument (handledningen) du skriver skall nnehålla beskrivningar om hur man:
+
+* Arbetar i text- och kommandomode (i förekommande fall)
+* Startar och avslutar editorn
+* Skapar nya, öppnar samt sparar text-filer
+* Skriver vanlig text
+* Vandrar mellan olika delar av texten
+* klipper, kopierar samt klistrar in text
+* Söker och ersätter text
+* Glöm inte att skiva namn, datum, samt titel i din lilla rapport.
+* Beskriv även vad ASCII är för något.
+* Slutligen skall du använda en hexeditor på din textfil och hitta ASCII representationen för ditt namn, samt redovisa hur du ändrade ditt namn i textfilen så att det står skrivet med stora bokstäver (versaler). För uppgiften kan du använda hexedit eller okteta. Installera med apt-get. > sudo apt-get install hexedit okteta
