@@ -10,3 +10,53 @@ Den dokument (handledningen) du skriver skall nnehålla beskrivningar om hur man
 * Glöm inte att skiva namn, datum, samt titel i din lilla rapport.
 * Beskriv även vad ASCII är för något.
 * Slutligen skall du använda en hexeditor på din textfil och hitta ASCII representationen för ditt namn, samt redovisa hur du ändrade ditt namn i textfilen så att det står skrivet med stora bokstäver (versaler). För uppgiften kan du använda hexedit eller okteta. Installera med apt-get. > sudo apt-get install hexedit okteta
+
+
+Robin Reicher
+19850316-6657
+-----------------------------------------------------------------------------------------------
+Jag använder GNU nano 2.5.3 för att skriva om Emacs 24. 
+
+Några klassiska förkortningar som kommer användas:
+* C-x = ctrl-knappen + x
+* M-x = Vänster alt-knappen + x
+
+Till exempel betyder "C-x a" att man ska trycka på ctrl och x samtidigt, sedan a.
+
+# 1. Att arbeta i text- och kommandomode.
+I Emacs finns inget specifict mode för kommandon. Vanligen trycker man C-x för ett kortare kommando och 
+M-x för att skriva in ett längre.
+
+# 2. Startar och avslutar editorn
+Du kan avsluta emacs med "C-x c" alternativt "M-x save-buffers-kill-terminal"
+
+# 3. Skapar nya, öppnar samt sparar text-filer
+För att öppna en fil  använder man "C-x f", du får då upp ett område där man likt konsolen kan skriva
+in filens sökväg, man kan även använda sig av tabb för auto-completion. 
+För att öppna en ny fil öppnar du bara en fil som inte existerar. 
+Du sparar med "C-x s".
+
+# 4. Skriver vanlig text
+Sålänge du inte tryckt ned ctrl eller alt så skriver du vanlig text.
+
+# 5. Vandrar mellan olika delar av texten
+Emacs stödjer användande av piltangenterna men rekommenderar att man inte använder dem av flera
+anledning. Dels måste man flytta handen till höger vilket bryter din fingerställning men också eftersom
+det iaf historiskt funnits många datorer utan pilltangenter. 
+Vill du flytta runt i texten i emacs på det sätt det var designat för bör man följande kommandon:
+Vänster ett tecken: C-b
+Höger ett tecken  : C-f
+Up en rad         : C-p
+Ned en rad        : C-n
+Vänster ett ord   : M-b
+Höger ett ord     : M-f
+
+En fördel är också att dessa kommandon fungerar i väldigt många andra miljöer, tex. nano.
+
+# 6. klipper, kopierar samt klistrar in text
+# 7. Söker och ersätter text
+# 8. Glöm inte att skiva namn, datum, samt titel i din lilla rapport.
+# 9. Beskriv även vad ASCII är för något.
+# 10. Slutligen skall du använda en hexeditor på din textfil och hitta ASCII representationen för ditt namn,$
+
+
