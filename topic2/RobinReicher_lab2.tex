@@ -92,44 +92,44 @@
 %----------------------------------------------------------------------------------------
 
 \section{Beskrivningar av samtliga kommandon i del 1}
-Nedan listas alla kommandon i del 1 samt de eventuella växlar en användare kan tänkas använda. 
+Nedan listas alla kommandon i del 1 samt de eventuella växlar en användare kan tänkas använda.
 \begin{labeling}{whereis12}
-\item [man] Visar manualen för ett kommando. 
-\item [info] Liknande 'man' men mer som en konsol-wiki med länkade sidor. 	
-\item [cp] Kopierar filer från en plats till en annan, tar minst 2 argument <källa> och <mål>. '-r' kopierar mappar rekursivt. '-s' skapar en symbolisk länk istället för att kopiera.  
-\item [mv] Flyttar eller döper om en fil, tar liksom 'cp' två argument <källa> och <mål>. Om dessa är i samma mapp döps filen om. '-n' skriver inte över existerande filer. 
+\item [man] Visar manualen för ett kommando.
+\item [info] Liknande 'man' men mer som en konsol-wiki med länkade sidor.
+\item [cp] Kopierar filer från en plats till en annan, tar minst 2 argument <källa> och <mål>. '-r' kopierar mappar rekursivt. '-s' skapar en symbolisk länk istället för att kopiera.
+\item [mv] Flyttar eller döper om en fil, tar liksom 'cp' två argument <källa> och <mål>. Om dessa är i samma mapp döps filen om. '-n' skriver inte över existerande filer.
 \item [mkdir] Skapar en mapp. '-m' används för att sätta filens rättigheter, dvs som 'chmod'
-\item [rmdir] Raderar en mapp 	
+\item [rmdir] Raderar en mapp
 \item [rm] Raderar en fil. '-r' kan radera mappar och deras innehåll rekursivt.
 \item [find] Låter dig söka igenom mappstrukturer efter filer baserat på bla. namn.	'-L' söker även igenom symboliska länkar.'-mount ' söker inte igenom andra filsystem.
-\item [cd] Öppnar upp en mapp, '..' som argument "backar ur" din aktiva mapp 	
-\item [pwd]  Visar var du befinner dig i mappstrukturen. '-P' visar fysisk plats och undviker alla symboliska länkar. 
+\item [cd] Öppnar upp en mapp, '..' som argument "backar ur" din aktiva mapp
+\item [pwd]  Visar var du befinner dig i mappstrukturen. '-P' visar fysisk plats och undviker alla symboliska länkar.
 \item [df] Visar information om filsystemet och diskanvändning. '-a' visar alla filsystem, även onåbara, dubbletter m.m.
-\item [ps] Listar de processer som för tillfället körs. '-elf' visar info om trådar. 
-\item [du] Listar alla mappars storlek, men en fil som argument visas den filens storlek. '-a' visar alla filer och mappars storlekar. 
-\item [tar] Komprimera eller packa upp filer. För att komprimera kan man använda '-cf' följt av den nya filens namn och sedan en lista på de filer/mappars om ska ingå. För att packa upp används  '-xf' följt av arkivets namn. 	
-\item [seq] Skriver ut en sekvens av nummer. Kan ha 1-3 argument. Ett argument skapar en sekvens av heltal från 1 till argumentet. Två argument listar alla heltal mellan argumenten. Tre argument låter dig välja starttal, inkrementerings-takt och sluttal.	
-\item [whoami] Skriver ut aktiv använder id. 	
-\item [users] Listar alla inloggade användare	
-\item [who] Listar mer utförlig info om vilka användare som är inloggade. Växeln --boot visar när systemet startades. '-a' visar alla användare. 
-\item [whereis] Visar var en binär(-b), källfil(-s) eller manual-sida(-m) finns i filsystemet. 	
+\item [ps] Listar de processer som för tillfället körs. '-elf' visar info om trådar.
+\item [du] Listar alla mappars storlek, men en fil som argument visas den filens storlek. '-a' visar alla filer och mappars storlekar.
+\item [tar] Komprimera eller packa upp filer. För att komprimera kan man använda '-cf' följt av den nya filens namn och sedan en lista på de filer/mappars om ska ingå. För att packa upp används  '-xf' följt av arkivets namn.
+\item [seq] Skriver ut en sekvens av nummer. Kan ha 1-3 argument. Ett argument skapar en sekvens av heltal från 1 till argumentet. Två argument listar alla heltal mellan argumenten. Tre argument låter dig välja starttal, inkrementerings-takt och sluttal.
+\item [whoami] Skriver ut aktiv använder id.
+\item [users] Listar alla inloggade användare
+\item [who] Listar mer utförlig info om vilka användare som är inloggade. Växeln --boot visar när systemet startades. '-a' visar alla användare.
+\item [whereis] Visar var en binär(-b), källfil(-s) eller manual-sida(-m) finns i filsystemet.
 \item [cat] Kan läsa filer till standard-output. '-a' visar alla tecken, så som radslut m.m.
-\item [tee] Skriver input till en fil och standard output. '-a' skriver inte över filen utan lägger till i slutet på den. 
-\item [more] delar upp lång text i hela sidor, börjar på första och låter dig bläddra med <mellanslag>. '-d' ger lite hjälpande förklaringar. 	
-\item [less] En nyare variant av 'more' som låter dig bläddra bakåt också.	
-\item [uniq] Filtrerar bort rader som inte är unika. '-d' skriver istället bara ut icke unika rader. Med 'f' kan man låta bli att kontrollera några rader i början.  	
-\item [tail] Visar de sista 10 raderna i en fil eller input. Med '-n' kan man ändra till att visa fler eller färre. 
-\item [echo] Visar en rad med text. 	
-\item [which] Visar var på filsystemet ett program ligger. 	
-\item [wget] Används för att hämta data över ett nätverk.  Med '-q' görs detta utan utskrifter. 
-\item [cut] Filtrerar bort delar av raderna i en fil. Med '-c' kan man välja att klippa ur de första tecknen i varje rad eller tex. tecken 5-10. 
-\item [grep] Söker efter text i en fil och visar hela raden. '-i' ignorerar skillnader mellan stora och små bokstäver. '-r' söker rekursivt igenom en mapp. 
-\item [sort] Sorterar indata, -R slumpar den istället. '-b' ignorerar inledande blanksteg.	
+\item [tee] Skriver input till en fil och standard output. '-a' skriver inte över filen utan lägger till i slutet på den.
+\item [more] delar upp lång text i hela sidor, börjar på första och låter dig bläddra med <mellanslag>. '-d' ger lite hjälpande förklaringar.
+\item [less] En nyare variant av 'more' som låter dig bläddra bakåt också.
+\item [uniq] Filtrerar bort rader som inte är unika. '-d' skriver istället bara ut icke unika rader. Med 'f' kan man låta bli att kontrollera några rader i början.
+\item [tail] Visar de sista 10 raderna i en fil eller input. Med '-n' kan man ändra till att visa fler eller färre.
+\item [echo] Visar en rad med text.
+\item [which] Visar var på filsystemet ett program ligger.
+\item [wget] Används för att hämta data över ett nätverk.  Med '-q' görs detta utan utskrifter.
+\item [cut] Filtrerar bort delar av raderna i en fil. Med '-c' kan man välja att klippa ur de första tecknen i varje rad eller tex. tecken 5-10.
+\item [grep] Söker efter text i en fil och visar hela raden. '-i' ignorerar skillnader mellan stora och små bokstäver. '-r' söker rekursivt igenom en mapp.
+\item [sort] Sorterar indata, -R slumpar den istället. '-b' ignorerar inledande blanksteg.
 \item [wc] Räknar antal rader i en fil. Kan även räkna på ord(-w), bytes(-c) med mera.
 \end{labeling}
 
 \section{I uppgift 2 står det att ingen annan användare ska ha tillgång till katalogerna. Är detta möjligt eller finns det en användare som aldrig går att utestänga?}
-Det är omöjligt, man kan aldrig utestänga användaren 'root'. Man kan alltid logga in som root (sudo -i) och komma åt allt. 
+Det är omöjligt, man kan aldrig utestänga användaren 'root'. Man kan alltid logga in som root (sudo -i) och komma åt allt.
 
 \pagebreak
 
@@ -159,10 +159,10 @@ d---rwx--- 2 regen marketgroup 4096 sep  9 13:58 market
 \end{lstlisting}
 
 Användare 'regen' är min användare som jag vanligtvis använder. De olika grupper har fullständiga rättigheter till mapparna. Varken ägaren 'regen' eller övriga användare kan varken läsa, skriva eller exekvera.
-     
+
 \section{Beskrivningar av katalogerna i uppgift 3}
 \begin{labeling}{/stuffs}
-\item [/boot] De filer som krävs för att starta ditt system. Linux kernel m.m 
+\item [/boot] De filer som krävs för att starta ditt system. Linux kernel m.m
 \item [/etc] Generella konfigurationsfiler för hela systemet. Kan ofta läsbara och möjliga att redigera "för hand" med en texteditor.
 \item [/sbin] Binärer till administratörsverktyg som i regel används för systemunderhåll av root
 \item [/bin] Grundläggande binärer som användare kan tänkas använda. Exempel kan vara bash, cp, ls och ps.
@@ -171,13 +171,13 @@ Användare 'regen' är min användare som jag vanligtvis använder. De olika gru
 \item [/dev] Innehåller representationer av systemets olika "devices" vilket generellt handlar om hårddiskar, mus, tangentbord, USB och annan hårdvara. Förutom hårvara finns även en slumpgenerator (/dev/random) och det bottenlösa hålet /dev/null
 \item [/home] Innehåller en katalog för varje användare på systemet (förutom root). I dessa kataloger ligger användarspecifika inställningar och data.
 \end{labeling}
-    
+
 \section{Svaren på del 4 med kommentarer om hur varje del i kombinationerna fungerar}
 \begin{enumerate}[label=(\alph*)]
-\item find -size  +1000 | sort \\ 
+\item find -maxdepth 1 -size  +1000 | sort \\
 Hittar alla filer med size över 1000 kilobytes och pipar det till sort för sortering
 \item sort adress.txt | uniq | wc -l \\
-Först sorterar vi adress.txt, sen plockar vi ut de unika rader som finns, sist använder vi wc med växeln -l för att räkna antal rader. 
+Först sorterar vi adress.txt, sen plockar vi ut de unika rader som finns, sist använder vi wc med växeln -l för att räkna antal rader.
 \item users | sort | uniq
 'users' listar alla användare, vi pipar det till sort som sorterar för att slutligen pipa till uniq som tar bort eventuella dubbletter.
 \item seq 1 10 | tee test1 test2
@@ -205,5 +205,5 @@ cat 0< enFilMedFilnamn.txt\\
 STDOUT är vanligen satt till skärmen i konsolen. För att spara dessa utskrifter till tex. en fil kan man styra om flödet med '1>' eller bara '>'. Tex: \\*
 ps > enFil.txt\\
 STDERROR skrivs precis som STDOUT ut till skärmen i konsolen. Till skillnad från STDOUT är denna vanligvis reserverad för felutskrifter. För att styra om eventuella felutskrifter använder man '2>' på samma sätt som med STDOUT. \\*
-Vanligvis när man använder '>' så skrivs filens innehåll över. Genom att använda '>>' lägger man istället till text i slutet av filen. 
+Vanligvis när man använder '>' så skrivs filens innehåll över. Genom att använda '>>' lägger man istället till text i slutet av filen.
 \end{document}
