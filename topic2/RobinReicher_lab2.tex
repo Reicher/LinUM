@@ -178,8 +178,8 @@ Användare 'regen' är min användare som jag vanligtvis använder. De olika gru
 Hittar alla filer med size över 1000 kilobytes och pipar det till sort för sortering
 \item sort adress.txt | uniq | wc -l \\
 Först sorterar vi adress.txt, sen plockar vi ut de unika rader som finns, sist använder vi wc med växeln -l för att räkna antal rader.
-\item users | sort | uniq
-'users' listar alla användare, vi pipar det till sort som sorterar för att slutligen pipa till uniq som tar bort eventuella dubbletter.
+\item users | tr ' ' '\n' | sort | uniq
+'users' listar alla användare, tr ' ' '\n' splittar alla användare till separata rader, det pipaa till sort som sorterar för att slutligen pipa till uniq som tar bort eventuella dubbletter.
 \item seq 1 10 | tee test1 test2
 seq 1 10 listar alla heltal mellan 1 och 10, vi pipar det till tee som skriver till både filer och standard output.
 \end{enumerate}
