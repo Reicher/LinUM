@@ -1,17 +1,3 @@
-Den dokument (handledningen) du skriver skall nnehålla beskrivningar om hur man:
-
-* Arbetar i text- och kommandomode (i förekommande fall)
-* Startar och avslutar editorn
-* Skapar nya, öppnar samt sparar text-filer
-* Skriver vanlig text
-* Vandrar mellan olika delar av texten
-* klipper, kopierar samt klistrar in text
-* Söker och ersätter text
-* Glöm inte att skiva namn, datum, samt titel i din lilla rapport.
-* Beskriv även vad ASCII är för något.
-* Slutligen skall du använda en hexeditor på din textfil och hitta ASCII representationen för ditt namn, samt redovisa hur du ändrade ditt namn i textfilen så att det står skrivet med stora bokstäver (versaler). För uppgiften kan du använda hexedit eller okteta. Installera med apt-get. > sudo apt-get install hexedit okteta
-
-
 Robin Reicher
 19850316-6657
 -----------------------------------------------------------------------------------------------
@@ -54,9 +40,25 @@ Höger ett ord     : M-f
 En fördel är också att dessa kommandon fungerar i väldigt många andra miljöer, tex. nano.
 
 # 6. klipper, kopierar samt klistrar in text
-# 7. Söker och ersätter text
-# 8. Glöm inte att skiva namn, datum, samt titel i din lilla rapport.
-# 9. Beskriv även vad ASCII är för något.
-# 10. Slutligen skall du använda en hexeditor på din textfil och hitta ASCII representationen för ditt namn,$
+För att klippa eller kopiera behöver man först kunna markera, i emacs sätter du en start-punk för en
+markering med "C-<spacebar>", när man rör runt markören ser man då vad som är markerat. För att klippa
+ut den markerade texten använder man "C-w", för att kopiera "M-w". För att klistra in används "C-y".
+Emacs variant (som kallas kill-ring) av cut-copy-paste har dock lite fler funktioner än den klassiska.
+Du kan exempelvis använda "M-y" för att gå tillbaka i historiken av "cuts". 
 
+# 7. Söker och ersätter text
+Medn "M-%" kan du byta ut en sträng (eller regexp-uttryck) mot något annat. När man valt vad man ska
+byta till vad markeras första matchen nedanför din markörs position, med 'y' godkänner du bytet och med
+'n' går du vidare till nästa. 
+
+# 8. Glöm inte att skiva namn, datum, samt titel i din lilla rapport.
+Överst i dokumentet. 
+
+# 9. Beskriv även vad ASCII är för något.
+ASCII är ett något föråldrat system för att representera text. Sju bitar används för att representera
+128 tecken för västerländskt bruk. Det innefattar bokstäverna A-Z i små och stora upplagot, 0-9, praktiska
+tecken så som punkt, komma, snabel-a osv. Slutligen några tecken man inte kan skriva ut men som används för
+att markera saker som radbryt, tabb osv. 
+
+# 10. Slutligen skall du använda en hexeditor på din textfil och hitta ASCII representationen för ditt namn
 
