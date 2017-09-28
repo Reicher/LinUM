@@ -92,17 +92,16 @@
 %----------------------------------------------------------------------------------------
 
 \section*{A}
-\lipsum[2] % Dummy text
+gcc my\_add\_2c -o plus
 
 \section*{B}
-\lipsum[2] % Dummy text
+gcc my\_add\_x.c -o plus\_x
 
 \section*{C}
-\lipsum[2] % Dummy text
+gcc -c my\_add.c\\
+gcc main.c my\_add.o -o adder.out
 
-\section*{D}
-\lipsum[2] % Dummy text
+\section*{D - Vilka kataloger är lämpliga på just ditt system och hur ser man det?}
+Genom att köra "echo \$PATH" kan man se vilka mappar som redan ligger i PATH. En lämplig plats som är standard i Ubuntu är \textasciitilde/.local/bin. 
 
-\section*{E}
-\lipsum[2] % Dummy text
 \end{document}

@@ -15,8 +15,11 @@ c_functions.o: c_functions.c
 d_functions.o: d_functions.c
 	gcc -c d_functions.c
 
+# Genom att köra "echo \$PATH" kan man se vilka mappar som
+# redan ligger i PATH.
+# En lämplig plats som är standard i Ubuntu är ~/.local/bin.
 install:
-	install -d program1 ~/.local/bin/
+	install program1 ~/.local/bin/
 
 uninstall:
 	rm -f ~/.local/bin/program1
