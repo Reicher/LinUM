@@ -16,6 +16,7 @@
 
 \begin{document}
 
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -42,7 +43,7 @@
 
 	\HRule\\[0.4cm]
 
-	{\huge\bfseries Övning 6 - Bibliotek}\\[0.4cm] % Title of your document
+	{\huge\bfseries Övning 7. Olika verktyg}\\[0.4cm] % Title of your document
 
 	\HRule\\[1.5cm]
 
@@ -91,32 +92,19 @@
 
 %----------------------------------------------------------------------------------------
 
-\section{Implementera biblioteket libpower}
-Jag fick bibliotek två tilldelat mig, libpower. Detta bibliotek är förmodligen det enklaste och ska innehålla två funktioner för beräkning av effekt i motstånd. 
+\section{Man-sidor och Groff}
 
-\subsection*{float calc\_power\_r(float volt, float resistance)}
-Denna returnerar effekten in ett motsånd baserat på vilken spänning som ligger över motståndet samt vilket resistans motståndet har. Detta beräknas på formlen: \\
-P = U\^2 / R (Spänning i kvadrat delat i resistansen)
+\section{Diff och patch}
 
-\subsection*{float calc\_power\_i(float volt, float current)}
-Denna returnerar effekten in ett motsånd baserat på vilken spänning som ligger över motståndet samt vilken ström som flödar genom det. Detta beräknas på formlen: \\
-P = U * I  (Spänning gånger strömmen)
+\subsection{  }
+Jag skapar de båda filerna fil1 och fil2, eller file1 och file2 som dom kallas högst upp i uppgiften. Med hjälp av kommandot:\\ 
+\$ diff fil1 fil2 > diffile\\
+skapar jag diff-filen "diffile". Skapar sedan kopior av fil 1 och 2. Slutligen applicerar jag diff-filen på fil1: \\
+\$ patch fil1 diffile\\
+Efter detta är fil1 identisk med fil2. 
 
-\subsection*{Testning av bibliotek}
-Jag bygger först en objectfil med flaggor för att förbereda den att bli ett bibliotek. '-c' ser till att ingen länkning görs, '-fPIC' ser till att objektfilen blir dynamisk.\\
-gcc -c -fPIC power.c -o power.o
+\subsection{ }
 
-Skapar sedan ett bibliotek av objektfilen: \\
-gcc -shared -fPIC -o libpower.so power.o
-
-Lägger sedan biblioteket på en passande plats:\\
-install libpower.so /usr/lib/
-
-Slutligen bygger jag min testapplikation:\\
-gcc -o test.o test.c -L. -lpower
-
-\section{Skriv en Makefile}
-
-\section{Reflektion över grupparbetet}
+\section{ Awk och sed}
 
 \end{document}
