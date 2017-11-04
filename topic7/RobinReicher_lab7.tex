@@ -106,7 +106,12 @@ Efter detta är fil1 identisk med fil2.
 \subsection{ }
 
 \section{ Awk och sed}
-Följande kommando listar alla filer och eventuella kommentarer\\
+\subsection{awk}Följande kommando listar alla filer och eventuella kommentarer\\
 \$ awk -F: '{ print "Användare: " $1 ", kommentar: " $5  }' /etc/passwd
+
+\subsection{sed}
+Följande kommando läser upp filen 3b.txt, pipar det till ett sed-kommando som byter ut å mot 'aa' globalt, sedans skickas det vidare till ett liknande sed-kommando i 2 led som byter ut ä och ö:\\
+\$ cat 3b.txt | sed s/å/aa/g | sed s/ä/ae/g | sed s/ö/oe/g > 3b\_fixed.txt
+
 
 \end{document}
