@@ -102,8 +102,15 @@ Jag skapar de båda filerna fil1 och fil2, eller file1 och file2 som dom kallas 
 skapar jag diff-filen "diffile". Skapar sedan kopior av fil 1 och 2. Slutligen applicerar jag diff-filen på fil1: \\
 \$ patch fil1 diffile\\
 Efter detta är fil1 identisk med fil2. 
+\subsection{}
+\subsubsection{Vad betyder de olika argumenten till diff och patch?}
+r - "recursive" Betyder att diffen även kommer göras på alla underkataloger och deras underkataloger osv.\\
+u - "unified" för diff-filen mer lättläslig för en människa och visar även lite mer information. Man kan se tidpunkten för förändringarna samt lite kontext runt förändringen. \\
+N - "NewFile" När man gör diffar mellan strukturer kan det hända att hela filer saknas. Med -N låtsas man då att de saknade filerna existerar men är tomma. \\
 
-\subsection{ }
+\subsubsection{Beskriv tillvägagångssättet för att göra detta}
+
+
 
 \section{ Awk och sed}
 \subsection{awk}Följande kommando listar alla filer och eventuella kommentarer\\
